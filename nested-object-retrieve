@@ -1,0 +1,31 @@
+package com.Test.JsonTest;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParserException;
+
+public class JsonIteration {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JsonIteration jsoniteration = new JsonIteration();
+		jsoniteration.jsonObjectItr("a"," ");
+		String Json = "{\"a\":{\"b\":{\"c\":\"d\"}}}\n";
+		
+	}
+	
+	public  void jsonObjectItr(String x, String y) {
+		String Json = "{\"a\":{\"b\":{\"c\":\"d\"}}}\n";
+		jsonObject obj = new jsonObject(JSON);
+		if(x.equals("a") && y.equals(" ")) {
+			System.out.println("Value of a" + obj.getJSONObject(x));
+		}
+		else if(y.equals("b")) {
+			System.out.println("Value of b" + obj.getJSONObject(x).get(y));
+		}
+		else if(y.equals("c")) {
+			System.out.println("Value of c" + obj.getJSONObject(x).getJSONObject("b").get(y));
+		}
+	}
+
+}
