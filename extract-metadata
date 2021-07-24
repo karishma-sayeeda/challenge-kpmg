@@ -1,0 +1,14 @@
+#powershell script
+#Command to Query metadata with JSON output of running aws instance 
+Get-EC2InstanceMetadata -Category IdentityDocument
+
+#retieves data key individually
+$jsonobj = (Get-EC2InstanceMetadata -Category IdentityDocument) | ConvertFrom-Json
+for ($i=0; $jsonobj; $i++)
+{
+$jsonobj.psobject.properties.name[$i]
+
+}
+
+#Command to query value of metadata extracted from running aws instance
+$jsonobj.psobject.properties.value
