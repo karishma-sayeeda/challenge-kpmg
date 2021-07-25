@@ -1,23 +1,20 @@
-#Availabilty set for web tier
 resource "azurerm_availability_set" "web-av-set" {
   name                          = var.web-av-set-name
   location                      = var.rg-location
   resource_group_name           = var.rg-name
   
 }
-#Availability set for app tier
 resource "azurerm_availability_set" "app-av-set" {
   name                          = var.app-av-set-name
   location                      = var.rg-location
   resource_group_name           = var.rg-name
   }
-#Availability set for data tier
 resource "azurerm_availability_set" "data-av-set" {
   name                          = var.data-av-set-name
   location                      = var.rg-location
   resource_group_name           = var.rg-name
   }
-#web tier VM
+
 resource "azurerm_windows_virtual_machine" "web-vm" {
   name                = "web-tier-vm"
   resource_group_name = var.rg-name
